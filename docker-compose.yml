@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: gemini-rag-chroma
+    volumes:
+      - chroma_data:/chroma/chroma
+    ports:
+      - "8000:8000"
+    environment:
+      - IS_PERSISTENT=TRUE
+      - COMPONENT_NAME=chroma
+    networks:
+      - rag_net
+    healthcheck:
+      test: ["CMD", "/bin/bash", "-c", "cat < /dev/tcp/localhost/8000"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  chroma_data:
+    driver: local
+
+networks:
+  rag_net:
+    driver: bridge
