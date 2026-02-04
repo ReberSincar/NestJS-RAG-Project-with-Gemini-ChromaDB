@@ -1,4 +1,4 @@
-# 🚀 Gemini RAG Project (NestJS + ChromaDB)
+# Gemini RAG Project (NestJS + ChromaDB)
 
 This project is a high-performance **Retrieval-Augmented Generation (RAG)** system built with **NestJS**. It allows you to create knowledge bases from **PDFs**, **TXT files**, and **Websites**, and then ask questions about them using **Google Gemini AI**.
 
